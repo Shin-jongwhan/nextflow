@@ -78,3 +78,60 @@ $ tar -zxvf jdk-17_linux-x64_bin.tar.gz
 $ ./nextflow run hello
 ```
 #### ![image](https://user-images.githubusercontent.com/62974484/206095871-e5e04713-0c3c-408b-82f1-b77b07e9b6d1.png)
+### <br/><br/><br/>
+
+## 예제
+### fasta 파일을 contig 단위로 나눈 후 각 라인의 텍스트를 거꾸로 읽는다.
+### view : output 파일의 절대경로를 프린트해준다.
+### reverse 함수의 input x 는 이전 함수에 output 파일 리스트 전체를 받아온다.
+```
+#!/usr/bin/env nextflow
+
+params.in = "/TBI/People/tbi/jhshin/tools/nextflow/example/reference.fasta"
+
+/*
+ * Split a fasta file into multiple files
+ */
+process splitSequences {
+
+    input:
+    path 'input.fa'
+
+    output:
+    path 'seq_*'
+
+    """
+    awk '/^>/{f="seq_"++d} {print > f}' < input.fa
+    """
+}
+
+/*
+ * Reverse the sequences
+ */
+process reverse {
+
+    input:
+    path x
+
+    output:
+    /*stdout*/
+    path 'output.fa'
+
+    """
+    cat $x | rev > output.fa
+    """
+}
+
+/*
+ * Define the workflow
+ */
+workflow {
+    splitSequences(params.in) \
+      | reverse \
+      | view
+}
+```
+### view 없을 때
+#### ![image](https://user-images.githubusercontent.com/62974484/206120450-37fb1282-6d7c-47d8-bcdb-719aaaa4a1ee.png)
+### view 있을 때
+#### ![image](https://user-images.githubusercontent.com/62974484/206120519-1af15362-0277-49bc-bb99-9ea2400fe2f4.png)
