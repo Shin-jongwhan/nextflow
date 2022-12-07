@@ -29,7 +29,7 @@
 ### 아무래도 생물정보학 쪽에는 베이스가 생명과학이기도 하고 프로그래밍에 강한 사람이 드물기 때문에 간단하게 분석 파이프라인을 만들 수 있어서인 것이 가장 큰 이유이지 않을까 싶다.
 #### 개인적인 의견... (snakemake 기준)
 ##### 솔직히 프로그래밍을 잘 한다는 가정 하에서는 워크플로우 언어를 써야 하는 이유를 잘 모르겠다. 오히려 불편하다. 
-##### 코드가 깔끔해진다고 하는데 오히려 더 복잡해지는 느낌이다. 아마 코딩도 워크플로우 언어도 경험치가 어느 정도 있으신 분이라면 공감할 수 있을 것 같다. 
+##### 코드가 깔끔해진다고 하는데 오히려 더 복잡해지는 느낌이다.
 ##### 오히려 워크플로우 언어는 input -> output 으로만 동작하는 컨셉에서 벗어나지 못 하기 때문에 한계점이 너무 명확해서 불편하다. 
 ##### 다양한 방식으로 예외 처리도 못 한다. 간혹가다가 워크플로우 언어의 문제로 에러가 발생한 것이라면 왜 에러가 발생하였는지 정말 알아내기가 어렵다. 
 ##### 그 예로는 분명 환경 전달이 잘 된 것 같은데 환경이 달라졌다고 나온다. conda info 로 환경을 확인해보면 잘 전달 되었다고 나온다. 그런데 conda 안에 있는 실행되어야 할 프로그램이 default 경로에 있는 프로그램이 실행이 되는 경우가 있다(?). 이는 snakemake 의 한계점이었다.
@@ -51,3 +51,23 @@
 ### seqera 의 파트너로 AWS 가 있어 AWS 클라우드와 호환이 된다.
 #### https://www.nextflow.io/docs/latest/awscloud.html
 ### <br/><br/><br/>
+
+## 사용 방법
+### 공식 홈페이지의 getting started 를 참고한다.
+#### https://www.nextflow.io/
+#### ![image](https://user-images.githubusercontent.com/62974484/206094813-a2053603-da98-405f-aa4f-34fb24024829.png)
+### 1. install 명령어를 저장해준다.
+```
+$ curl -s https://get.nextflow.io > nextflow_install.sh
+```
+### 2. bash nextflow_install.sh 로 실행한다.
+### 만약 java version 때문에 에러가 난다면 따로 java 를 설치해준 후 아래와 같이 JAVA_HOME 을 수정해주고 실행한다.
+```
+# jdk 17 다운로드
+$ wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
+
+# 압축 풀기
+$ tar -zxvf jdk-17_linux-x64_bin.tar.gz
+```
+#### ![image](https://user-images.githubusercontent.com/62974484/206095571-c50c3399-6944-4352-bce8-b1ab556cfc8c.png)
+#### ![image](https://user-images.githubusercontent.com/62974484/206095075-8d3b0416-36bf-464e-a6ee-1fd650497728.png)
