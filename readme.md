@@ -71,3 +71,11 @@ $ tar -zxvf jdk-17_linux-x64_bin.tar.gz
 ```
 #### ![image](https://user-images.githubusercontent.com/62974484/206095571-c50c3399-6944-4352-bce8-b1ab556cfc8c.png)
 #### ![image](https://user-images.githubusercontent.com/62974484/206095075-8d3b0416-36bf-464e-a6ee-1fd650497728.png)
+### 다음과 같이 nextflow 가 생성된다.
+#### ![image](https://user-images.githubusercontent.com/62974484/206095828-4d2f6a62-e01e-4e9a-ba6e-2bc0f4a6f2d5.png)
+### <br/>
+### 3. hello world 를 실행해본다.
+```
+$ ./nextflow run hello
+```
+#### ![image](https://user-images.githubusercontent.com/62974484/206095871-e5e04713-0c3c-408b-82f1-b77b07e9b6d1.png)
